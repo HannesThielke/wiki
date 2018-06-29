@@ -1,0 +1,116 @@
+\hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
+
+
+This is the introduction.\hypertarget{index_install_sec}{}\section{Installation}\label{index_install_sec}
+\hypertarget{index_step1}{}\subsection{Step 1\+: Installing Packages}\label{index_step1}
+Before the first use of the \mbox{\hyperlink{class_open_drop}{Open\+Drop}} Library, the following packages must be installed\+:~\newline
+
+\begin{DoxyItemize}
+\item Adafruit\+\_\+\+S\+S\+D1306~\newline
+
+\item Adafruit-\/\+G\+F\+X-\/\+Library~\newline
+
+\item \mbox{\hyperlink{class_open_drop}{Open\+Drop}} Library~\newline
+ Please make sure to use the packages from the the Git\+Hub repository as newer versions of those libraries could cause problems.
+\end{DoxyItemize}\hypertarget{index_example}{}\section{Example code}\label{index_example}
+
+\begin{DoxyCodeInclude}
+/*
+  Basic Code to run the OpenDrop V2.1, Research platfrom for digital microfluidics
+  Object codes are defined in the OpenDrop.h library
+  Written by Urs Gaudenz from GaudiLabs
+  2016
+
+  Changes made by Hannes Thielke - bio compute lab Bristol
+  2018
+ */
+
+/******************************
+ * Libraries:
+ * <SPI.h>: Communication with SPI devices
+ * <Wire.h>: Communication with I2C / TWI devices
+ * <TimerOne.h>: Collection of routines for configuring the 16 bit hardware timer on the ATmega168/328
+ * <avr/pgmspace.h>: Store data in flash (program) memory instead of SRAM
+ * "Adafruit\_GFX.h" (version 1.1.3): Core graphics library for the OLED display
+ * <Adafruit\_SSD1306.h> (version 1.0.1): SSD1306 oled driver library for 'monochrome' 128x64 and 128x32
+       OLEDs
+ * <OpenDropII.h>: OpenDrop Library from GaudiLabs
+ * "hardware\_def.h": Definition of the hardware settings (PINS etc.)
+ ******************************/
+
+#include "TimerOne.h"  
+#include <avr/pgmspace.h>
+
+#include "Adafruit\_GFX.h"
+#include <Adafruit\_SSD1306.h>
+
+#include <OpenDropII.h>
+#include "hardware\_def.h"
+
+/******************************
+ * Variables
+ ******************************/
+OpenDrop OpenDropDevice = OpenDrop();     //Create a new OpenDrop Object
+Drop *myDrop = OpenDropDevice.getDrop();  //Initialize a droplet
+
+int JOY\_value;        //Analog value from the joystick
+int SW2\_value;        //Digital value that shows the state of button 2
+int del\_time=10;      //Delay time during update loops
+
+/******************************
+ * Setup Function: Executed at the beginning of the programme
+ ******************************/
+void setup() \{
+
+  // Initialize the clock speed of the timer (Frequency in Hz
+  const int AC\_frequency=1000;
+  Timer1.initialize(500000/AC\_frequency);
+
+  // Enable Serial Output at baudrate 4800
+  Serial.begin(4800);
+
+  // Begin with a droplet on the electrode at position (7,7)
+  OpenDropDevice.begin();
+  myDrop->begin(7,7);
+
+  // Play sound
+  tone(SPK\_pin,2000,100);
+  delay(100);
+  tone(SPK\_pin,2000,100);
+  delay(200);
+
+  // Wait for button 2 to be pressed
+  while(digitalRead(SW2\_pin) == HIGH);
+  Serial.println("Button pressed: Starting ...");
+
+  // Update the OpenDrop device
+  OpenDropDevice.update();
+\}
+
+/******************************
+ * Loop Function: Executed after the setup is done and repeated forever
+ ******************************/
+void loop() \{
+
+  /** Read the joystick position
+   *  SW\_value is 0 when button is pressed; else 1
+   */
+  JOY\_value = analogRead(JOY\_pin);
+
+  /** Wait for changes */
+  while(JOY\_value>950)\{
+   JOY\_value = analogRead(JOY\_pin);
+  \}
+  
+  /** Move the droplet according to the joystick position */
+  if  (JOY\_value<300)                     myDrop->move\_right(); // Move right
+  if  ((JOY\_value>700)&&(JOY\_value<950))  myDrop->move\_up();    // Move up
+  if  ((JOY\_value>600)&&(JOY\_value<700))  myDrop->move\_left();  // Move left
+  if  ((JOY\_value>450)&&(JOY\_value<600))  myDrop->move\_down();  // Move down
+
+  OpenDropDevice.run(); // Refresh
+  delay(del\_time);      // Refresh rate
+
+\}
+\end{DoxyCodeInclude}
+ 

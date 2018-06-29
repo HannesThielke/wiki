@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hardware</title>
+  <meta name="description" content="Information about the current work on the OpenDrop Device">
+  <meta name="keywords" content="opendrop">
+  <meta name="author" content="Hannes Thielke">
+
+  <meta property="og:title" content="Hardware" />
+  <meta property="og:description" content="Information about the current work on the OpenDrop Device
+" />
+  <meta property="og:site_name" content="OpenDrop" />
+  <meta property="og:url" content="http://localhost:4000/OpenDrop/3-hardware.html" />
+  <meta property="og:locale" content="en_US" />
+  <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebPage","headline":"Hardware","author":{"@type":"Person","name":"Hannes Thielke"},"description":"Information about the current work on the OpenDrop Device
+","url":"http://localhost:4000/OpenDrop/3-hardware.html"}</script>
+
+  <link rel="stylesheet" href="http://localhost:4000/OpenDrop/css/main.css">
+
+  <!-- Google Analytics -->
+
+</head>
+
+
+  <body>
+    
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://localhost:4000/OpenDrop/">OpenDrop</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/1-coating.html">Coating</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/2-od_measurement.html">OD600-Measurement</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/3-hardware.html">Hardware</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/4-software.html">Software</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <p>The following picture illustrates the general functions of the OpenDrop v2.1 System:</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/opendrop_v2.1_label_front.png" alt="OpenDrop Peripherals (front)" style="height:11cm;" />
+    
+  </figure>
+
+<p>On the top there are the following peripherals:</p>
+<ul>
+  <li><strong>12V DC Power Supply Socket</strong>: To deliver the high input voltage for the HV507PG driver chips a power supply is used that transforms the low input voltage to a higher level. According to the performance tests on the <a href="http://desmith.net/NMdS/Electronics/NixiePSU.html#highcurrent">Power Supply Unit</a> the input current stays under 1A. Hence, a 1A power supply should be enough to power the OpenDrop Device. We used a 12V/2A Power Supply with a 2.5mm DC plug.</li>
+  <li><strong>Piezo Speaker</strong>: The piezo speaker is used to give an audio feedback. Sounds can be turned off in the OpenDrop Library.</li>
+  <li><strong>OLED Display</strong>: The display is an Adafruit 128x64 OLED based on the SSD1306 single-chip CMOS display driver. It communicates with the Arduino Micro via a SPI bus.</li>
+  <li><strong>Micro USB Port</strong>: Used to program the Arduino</li>
+  <li><strong>V_GND</strong>:</li>
+  <li><strong>Fluxl-Matrix</strong>: 16×8 electrodes array, 2.75mm2 in size</li>
+  <li><strong>Button 1</strong>: Free to use for any additional features</li>
+  <li><strong>Button 2</strong>: Start-Button</li>
+  <li><strong>Joystick</strong>: Used for moving around the droplets</li>
+  <li><strong>High Voltage Potentiometer</strong>: The high voltage level that is used to drive the electrode array can be controlled with the potentiometer. Turn clockwise to increase the output voltage</li>
+  <li>
+    <p><strong>High voltage switch</strong>: This switch is a safety feature that provides the possibility to turn the high voltage off if needed</p>
+
+    <figure display:="" inline-block="">
+  <img src="http://localhost:4000/OpenDrop/images/opendrop_v2.1_label_back.png" alt="OpenDrop Peripherals (back)" style="height:10cm;" />
+    
+</figure>
+  </li>
+</ul>
+
+<p>On the back of the OpenDrop System you can find the following peripherals:</p>
+<ul>
+  <li><strong>Arduino Micro (Socket)</strong>: The heart of the system which controls the functionality of the OpenDrop System.</li>
+  <li><strong>High Voltage Boost Converter</strong>: The <a href="http://desmith.net/NMdS/Electronics/NixiePSU.html">power supply unit</a> was originally created for Nixie Tubes and is adopted to the OpenDrop System. It boosts the incoming 12V DC voltage to the high voltage (65-250VDC depending on the potentiometer)</li>
+  <li><strong>HV507PG</strong>: The HV507PG is a 64-Channel Serial-to-Parallel Converter with High-Voltage Push-Pull Outputs. It is used to deliver the high voltage for the electrodes. To drive all 128 electrodes two HV507 chips are used in series. More information: see below.</li>
+  <li><strong>Wifi Socket</strong>: The wifi socket can be used to add wifi capability based on the ESP8266 Chip</li>
+  <li><strong>Feedback Amplifier</strong>: The feedback amplifier circuit amplifies the voltage signal from the feedback pin and creates a higher voltage level that can be read by the Arduino</li>
+  <li><strong>Arduino Pin A1</strong>: This pin was originally intended to be used for the polarity pin of the HV507 flash registers that drive the electrodes. It can be configured as an analog input for OD measurement setup.</li>
+</ul>
+
+<h2 id="hv507pg-serial-to-parallel-converter">HV507PG Serial to Parallel Converter</h2>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/hv507pg_cascade.png" alt="HV507" style="height:5cm;" />
+    
+  </figure>
+
+<p>According to it’s <a href="files/hv507_datasheet.pdf">datasheet</a>, the HV507PG is “a low-voltage to high-voltage serial-to-parallel converter with 64 push-pull outputs”. It is used to drive the electrodes in the middle of the OpenDrop. To drive all 128 electrodes, two serial-to-parallel converters are used in series (as a cascade). The DIOA pin of the first chip is configured as the main serial input. The DIOB pin is configured as the output and is connected to the DIOA input of the second chip. In this way it is possible to drive 128 high voltage outputs instead of 64.</p>
+
+<!--  This table was created with http://tableizer.journalistopia.com -->
+<figure>
+<style type="text/css">
+	table.tableizer-table {
+		font-size: 12px;
+		border: 1px solid #CCC; 
+		font-family: Arial, Helvetica, sans-serif;
+	} 
+	.tableizer-table td {
+		padding: 4px;
+		margin: 3px;
+		border: 1px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+	}
+</style>
+<table class="tableizer-table" cellspacing="0">
+<thead><tr class="tableizer-firstrow"><th>Pin Nr.</th><th>Pin Name</th><th>Description</th></tr></thead><tbody>
+ <tr><td>25 + 40 </td><td>VPP </td><td>High-voltage power supply </td></tr>
+ <tr><td>26</td><td>DIOA </td><td>Serial Data Input/Output A à here configured as data input</td></tr>
+ <tr><td>29</td><td>BL </td><td>Blanking pin</td></tr>
+ <tr><td>30</td><td>POL </td><td>Polarity </td></tr>
+ <tr><td>31</td><td>VDD </td><td>Low-voltage power supply </td></tr>
+ <tr><td>32</td><td>DIR </td><td>Direction pin: DIR is physically connected to GND à DIOA is data in and DIOB is data out. Data is shifted from HVOUT64 to</td></tr>
+ <tr><td>33</td><td>GND </td><td>Logic voltage ground </td></tr>
+ <tr><td>34</td><td>HVGND </td><td>High-voltage power supply </td></tr>
+ <tr><td>37</td><td>CLK </td><td>Data Shift Register Clock. Inputs are shifted into the Shift register on the positive edge of the clock. </td></tr>
+ <tr><td>38</td><td>LE </td><td>Latch Enable </td></tr>
+ <tr><td>39</td><td>DIOB </td><td>Serial Data Input/Output B</td></tr>
+</tbody></table>
+</figure>
+<figcaption>Overview of a selection of pins on the HV507 chip</figcaption>
+
+<p>The electrodes can be turned on or off by sending a 128bit code to the DIOA pin of the first HV507PG chip. This data is first send to the static shift register and afterwards stored in the latches. To send the data to the actual electrode matrix - thus activating the high voltage electrodes – the blanking pin must be activated.</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/hlm507_functional_block_diagram.png" alt="HV507" style="height:10cm;" />
+    <figcaption>HV507 Functional Block Diagram  <a href="files/hv507_datasheet.pdf">(source)</a> </figcaption>
+  </figure>
+
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper" >
+    <div class="footer-nav">
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/1-coating.html">Coating</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/2-od_measurement.html">OD600-Measurement</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/3-hardware.html">Hardware</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/4-software.html">Software</a>
+          
+        
+          
+        
+          
+        
+    </div>
+    </div>
+      <h2 class="footer-heading"><a href="http://localhost:4000/OpenDrop/">OpenDrop</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa</a> <a href="https://github.com/pellkartoffel">Hannes Thielke</a> - 2018.</h2> 
+  </div>
+</footer>
+
+
+  </body>
+
+</html>

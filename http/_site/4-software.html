@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Software</title>
+  <meta name="description" content="Information about the current work on the OpenDrop Device">
+  <meta name="keywords" content="opendrop">
+  <meta name="author" content="Hannes Thielke">
+
+  <meta property="og:title" content="Software" />
+  <meta property="og:description" content="Information about the current work on the OpenDrop Device
+" />
+  <meta property="og:site_name" content="OpenDrop" />
+  <meta property="og:url" content="http://localhost:4000/OpenDrop/4-software.html" />
+  <meta property="og:locale" content="en_US" />
+  <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebPage","headline":"Software","author":{"@type":"Person","name":"Hannes Thielke"},"description":"Information about the current work on the OpenDrop Device
+","url":"http://localhost:4000/OpenDrop/4-software.html"}</script>
+
+  <link rel="stylesheet" href="http://localhost:4000/OpenDrop/css/main.css">
+
+  <!-- Google Analytics -->
+
+</head>
+
+
+  <body>
+    
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://localhost:4000/OpenDrop/">OpenDrop</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/1-coating.html">Coating</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/2-od_measurement.html">OD600-Measurement</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/3-hardware.html">Hardware</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/4-software.html">Software</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="programming-the-opendrop">Programming the OpenDrop</h1>
+<p>The OpenDrop v2.1 is based on an <a href="https://store.arduino.cc/arduino-micro">Arduino Micro</a> which is a development board based on the ATmega32U4 microcontroller and acts on a 5V logic level. It has 20 digital input/output pins (of which 7 can be used as PWM outputs and 12 as analog inputs), a 16 MHz crystal oscillator, a micro USB connection, an ICSP header, and a reset button. The Arduino Micro can be programmed via the <a href="https://www.arduino.cc/en/Main/Software?">Arduino IDE</a>.</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/arduino_micro.jpg" alt="" style="height:3cm;" />
+    <figcaption>Arduino Micro  <a href="https://store-cdn.arduino.cc/usa/catalog/product/cache/1/image/1040x660/604a3538c15e081937dbfbd20aa60aad/a/0/a000053_featured_2.jpg">(source)</a> </figcaption>
+  </figure>
+
+<p>The source code for the <a href="doxygen/html/index.html">OpenDrop Library</a> is located on our <a href="https://github.com/BiocomputeLab/opendrop">GitHub repository</a>. It is a modified version of the <a href="https://github.com/GaudiLabs/OpenDrop">original source code</a> where new functions and comments have been added.
+ The OpenDrop-Library provides useful functions to operate the system. This includes the initialization of peripherals (Electrodes, Buttons, Joystick, OLED-Display, Potentiometer), the droplet-movement and the feedback reading. For a detailed documentation of the specific functions, have a look on our Library documentation:
+ <a href="doxygen/html/index.html">Library</a></p>
+
+<p>This documentation was automatically created from the source code with the help of <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a>.</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/doxygen_logo.png" alt="" />
+    <figcaption>Doxygen Logo  <a href="https://www.macupdate.com/app/mac/51038/doxygen">(source)</a> </figcaption>
+  </figure>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper" >
+    <div class="footer-nav">
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/1-coating.html">Coating</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/2-od_measurement.html">OD600-Measurement</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/3-hardware.html">Hardware</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/4-software.html">Software</a>
+          
+        
+          
+        
+          
+        
+    </div>
+    </div>
+      <h2 class="footer-heading"><a href="http://localhost:4000/OpenDrop/">OpenDrop</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa</a> <a href="https://github.com/pellkartoffel">Hannes Thielke</a> - 2018.</h2> 
+  </div>
+</footer>
+
+
+  </body>
+
+</html>

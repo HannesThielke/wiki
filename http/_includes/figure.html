@@ -1,0 +1,35 @@
+{% if include.file3 %}
+  <center>
+    <table class="image">
+      <tr>
+        <td><figure>
+          <img src="{{ include.file | prepend: '/images/' | absolute_url }}" alt="{{ include.alt }}"{% if include.height %} style="height:{{ include.height }}"{% elsif include.width %} style="width:{{ include.width }}"{% endif %}>
+        </figure> {% if include.caption %}<figcaption>{{ include.caption }} {% if include.src %} <a href="{{include.src}}">(source)</a> {% endif %}</figcaption>{% endif %} </td>
+        <td><figure>
+          <img src="{{ include.file2 | prepend: '/images/' | absolute_url }}" alt="{{ include.alt }}"{% if include.height %} style="height:{{ include.height }}"{% elsif include.width %} style="width:{{ include.width }}"{% endif %}>
+        </figure> {% if include.caption2 %}<figcaption>{{ include.caption2 }} {% if include.src2 %} <a href="{{include.src2}}">(source)</a> {% endif %}</figcaption>{% endif %} </td>
+        <td><figure>
+          <img src="{{ include.file3 | prepend: '/images/' | absolute_url }}" alt="{{ include.alt }}"{% if include.height %} style="height:{{ include.height }}"{% elsif include.width %} style="width:{{ include.width }}"{% endif %}>
+        </figure> {% if include.caption3 %}<figcaption>{{ include.caption3 }} {% if include.src3 %} <a href="{{include.src3}}">(source)</a> {% endif %}</figcaption>{% endif %} </td>
+      </tr>
+    </table>
+  </center>
+{% elsif include.file2 %}
+  <center>
+      <table class="image">
+        <tr>
+          <td><figure>
+            <img src="{{ include.file | prepend: '/images/' | absolute_url }}" alt="{{ include.alt }}"{% if include.height %} style="height:{{ include.height }}"{% elsif include.width %} style="width:{{ include.width }}"{% endif %}>
+          </figure> {% if include.caption %}<figcaption>{{ include.caption }} {% if include.src %} <a href="{{include.src}}">(source)</a> {% endif %}</figcaption>{% endif %} </td>
+          <td><figure>
+            <img src="{{ include.file2 | prepend: '/images/' | absolute_url }}" alt="{{ include.alt }}"{% if include.height %} style="height:{{ include.height }}"{% elsif include.width %} style="width:{{ include.width }}"{% endif %}>
+          </figure> {% if include.caption2 %}<figcaption>{{ include.caption2 }} {% if include.src2 %} <a href="{{include.src2}}">(source)</a> {% endif %}</figcaption>{% endif %} </td>
+        </tr>
+      </table>
+    </center>
+{% elsif include.file %}
+  <figure display: inline-block>
+    <img src="{{ include.file | prepend: '/images/' | absolute_url }}" alt="{{ include.alt }}" {% if include.height %}style="height:{{ include.height }};"{% endif %}>
+    {% if include.caption %}<figcaption>{{ include.caption }} {% if include.src %} <a href="{{include.src}}">(source)</a> {% endif %}</figcaption>{% endif %}
+  </figure>
+{% endif %}

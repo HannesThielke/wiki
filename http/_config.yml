@@ -1,0 +1,40 @@
+# Jekyll workshop-template https://github.com/evanwill/workshop-template
+# based on minima theme https://github.com/jekyll/minima
+
+# Notes: 
+# - fig include, {% include figure.html file="my-cat.jpg" alt="cat" caption="My cat" width="50%" %}
+# - pages with "nav: true" in front matter will be in header nav
+# - use environment variable on build command to include analytics: JEKYLL_ENV=production jekyll build
+
+# site settings
+title: OpenDrop
+description: > 
+  Information about the current work on the OpenDrop Device
+keywords: "opendrop"
+
+# author settings for cc-by
+author: Hannes Thielke
+pub_year: 2018
+github_username: pellkartoffel
+
+# add the full url for the github repository
+repo: "https://github.com/pellkartoffel/OpenDrop"
+
+# urls
+# your gh-pages url: https://username.github.io
+url: https://pellkartoffel.github.io
+# your repository name: /repository
+baseurl: /OpenDrop
+
+# analytics if desired (and use environment variable on build command)
+google_analytics: UA-74844011-1
+
+# defaults (to simplify front matter)
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Build settings
+markdown: kramdown

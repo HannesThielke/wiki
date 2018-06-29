@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>OD600-Measurement</title>
+  <meta name="description" content="Information about the current work on the OpenDrop Device">
+  <meta name="keywords" content="opendrop">
+  <meta name="author" content="Hannes Thielke">
+
+  <meta property="og:title" content="OD600-Measurement" />
+  <meta property="og:description" content="Information about the current work on the OpenDrop Device
+" />
+  <meta property="og:site_name" content="OpenDrop" />
+  <meta property="og:url" content="http://localhost:4000/OpenDrop/2-od_measurement.html" />
+  <meta property="og:locale" content="en_US" />
+  <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebPage","headline":"OD600-Measurement","author":{"@type":"Person","name":"Hannes Thielke"},"description":"Information about the current work on the OpenDrop Device
+","url":"http://localhost:4000/OpenDrop/2-od_measurement.html"}</script>
+
+  <link rel="stylesheet" href="http://localhost:4000/OpenDrop/css/main.css">
+
+  <!-- Google Analytics -->
+
+</head>
+
+
+  <body>
+    
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="http://localhost:4000/OpenDrop/">OpenDrop</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/1-coating.html">Coating</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/2-od_measurement.html">OD600-Measurement</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/3-hardware.html">Hardware</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/4-software.html">Software</a>
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+
+	<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+</head>
+
+<h1 id="optical-density-measurement">Optical Density Measurement</h1>
+<p>Description (drawn from <a href="http://www.biotronix.de/Data/EloCheck_Application_Note_1.pdf">Biotronix</a>):</p>
+
+<p>Measuring the optical density of growing cultures is a common method to quantify various important culture parameters like cell concentration, biomass production or changes in the cell morphology. In general, measuring the optical density (OD) is a common method to quantify the concentration of substances (<strong>Beer-Lambert-Law</strong>), since the absorbance is proportional to the concentration of the absorbing species in the sample. Photometers quantify the optical density of liquid samples by comparing the intensity of light that has passed through and the intensity of the light before it enters the sample.</p>
+
+<p>Automating processes like growing cells on a lab-on-a-chip device like the OpenDrop requires a continuous monitoring of the growth process. To do so, measuring the absorbance is a useful method to determine the current cell concentration which helps to regulate the cell growth in a pre-programmed way.</p>
+
+<p>To understand the mathematical and physical background of OD-measurement, a short overview of the basic optical parameter is given in the following.</p>
+
+<h1 id="general-optical-parameter">General Optical Parameter</h1>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/optics.png" alt="" style="height:7cm;" />
+    <figcaption>Comparison of optical parameters  <a href="https://learn.sparkfun.com/tutorials/temt6000-ambient-light-sensor-hookup-guide?_ga=2.181503214.856477097.1528971890-1685415095.1525085967">(source)</a> </figcaption>
+  </figure>
+
+<p>Optical quantities can be described in two different systems. Radiometry on the one hand describes electromagnetic radiation including visible light. Photometry on the other hand describes light, in terms of its perceived brightness to the human eye (around 400–700nm). A comparison of the equivalent quantities is given in the following table:</p>
+
+<!--  This table was created with http://tableizer.journalistopia.com -->
+<figure>
+<style type="text/css">
+	table.tableizer-table {
+		font-size: 12px;
+		border: 1px solid #CCC; 
+		font-family: Arial, Helvetica, sans-serif;
+	} 
+	.tableizer-table td {
+		padding: 4px;
+		margin: 3px;
+		border: 1px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+	}
+</style>
+<table class="tableizer-table" cellspacing="0">
+<thead><tr class="tableizer-firstrow"><th>Radiometric Units</th><th>Symbol</th><th>Unit</th><th>Photometric Units</th><th>Symbol</th><th>Unit</th><th>Description</th></tr></thead><tbody>
+ <tr><td>Radiant power</td><td>$$P$$</td><td>Watts [W]</td><td>Luminous flux</td><td>$$F$$</td><td>Lumens [lm]</td><td>total perceived power of light</td></tr>
+ <tr><td>Radiant intensity</td><td>$$I$$</td><td>Watts per steradian [W/ster]</td><td>Luminous intensity</td><td>$$I_v$$</td><td>Candelas [cd = lm/ster]</td><td>perceived power emitted by a light source in a particular direction per unit solid angle</td></tr>
+ <tr><td>Irradiance</td><td>$$E$$</td><td>Watts per square metre [W/m2]</td><td>Illuminance</td><td>$$E_v$$</td><td>Lux [lx = lm/m2]</td><td>total luminous flux incident on a surface, per unit area</td></tr>
+</tbody></table>
+</figure>
+<figcaption>Overview of important optical quantities <a href="">(source)</a></figcaption>
+
+<p><br /></p>
+
+<p>When doing calculations with optical parameters, the following table is helpful to convert between different units.</p>
+
+<!--  This table was created with http://tableizer.journalistopia.com -->
+<figure><center>
+<table class="tableizer-table" cellspacing="0">
+<thead><tr class="tableizer-firstrow"><th>From</th><th>To</th><th>Given</th><th>Equation</th></tr></thead><tbody>
+<tr><td> Candela (\( I_v \))  </td><td> Lumen (\( \Phi_v \)) </td><td> apex angle &alpha;             </td><td> \( \Phi_v = 2\pi I_v\left( {1 - \cos {\alpha  \over 2}} \right) \) </td></tr>
+<tr><td> Lumen (\( \Phi_v \)) </td><td> Candela (\( I_v \))  </td><td> apex angle &alpha;             </td><td> \( I_v = {\Phi_v \over {2\pi \left( {1 - \cos {&frac12; \alpha}} \right)}} \) </td></tr>
+<tr><td> Lumen (\( \Phi_v \)) </td><td> Lux (\( E_v \))      </td><td> surface area A (m<sup>2</sup>) </td><td> \( E_v = {\Phi_v \over A} \) </td></tr>
+<tr><td> Lux (\( E_v \))      </td><td> Lumen (\( \Phi_v \)) </td><td> surface area A (m<sup>2</sup>) </td><td> \( \Phi_v = E_v \cdot A \) </td></tr>
+<tr><td> Candela (\( I_v \))  </td><td> Lux (\( E_v \))       </td><td> measuring distance D (m)      </td><td> \( E_v = {I_v \over {D^2}} \) </td></tr>
+<tr><td> Lux (\( E_v \))      </td><td> Candela (\( I_v \)) </td><td> measuring distance D (m)        </td><td> \( I_v = E_v \cdot D^2 \) </td></tr>
+</tbody></table>
+</center></figure>
+<figcaption>Conversion table for optical quantities <a href="https://www.compuphase.com/electronics/candela_lumen.htm">(source)</a></figcaption>
+
+<p>A detailed comparison of the different optical quantities can be found here: <a href="https://www.compuphase.com/electronics/candela_lumen.htm">Compuphase.com</a></p>
+
+<h2 id="derivation">Derivation</h2>
+<p>According to the <strong>Beer–Lambert law</strong>, the <strong>absorbance</strong> <script type="math/tex">A_\lambda</script> of a material for a specific wave length <script type="math/tex">\lambda</script> is given by:</p>
+
+<script type="math/tex; mode=display">A_\lambda=\log_{10}⁡\left(\frac{I_{v0}}{I_{v1}}\right)=\epsilon_\lambda\cdot c \cdot d</script>
+
+<p>where <script type="math/tex">I_{v0}</script> in <script type="math/tex">Wm^{-2}</script> is the intensity of the incident light, <script type="math/tex">I_{v1}</script> in <script type="math/tex">Wm^{-2}</script> is the intensity of the transmitted light, <script type="math/tex">\epsilon_\lambda</script> in e.g. <script type="math/tex">m^2 mol^{-1}</script> is the molar absorption coefficient that is dependent on the specific substance, <script type="math/tex">c</script> in <script type="math/tex">mol \cdot l^{-1}</script> is the concentration of the substance and <script type="math/tex">d</script> is the pathlength of the sample.</p>
+
+<p><em>Drawn from <a href="http://www.rsc.org/images/EiC-05_2007-spectrophotometer_tcm18-214788.pdf">RSC.org</a>:</em></p>
+
+<p>As well as absorption by the compound, other processes reduce the intensity of light that passes through the sample, so it is essential to take a ‘background’ reading for the solvent and the cell, which corresponds to <script type="math/tex">I_{v1}</script>.
+It is assumed that the relationship between the incident light and the measurement values received from the light sensor is linear. In that case, the ratio <script type="math/tex">I_{v0}/I_{v1}</script>  can be expressed as:</p>
+
+<script type="math/tex; mode=display">\frac{I_{v0}}{I_{v1}} = \frac{I_{sample}}{I_{solvent}} = \frac{V_{sample}-V_{zero}}{V_{solvent}-V_{zero}}</script>
+
+<p>where <script type="math/tex">V_{sample}</script> and <script type="math/tex">V_{solvent}</script> are the readings of the light sensor for the sample cell and the solvent. <script type="math/tex">V_{zero}</script> is the measurement value that is received from the sensor when no light is falling on the photodiode. In our case, this offset is <script type="math/tex">V_{zero}=0</script>. Hence, the absorbance can be calculated by</p>
+
+<script type="math/tex; mode=display">A_\lambda=\log_{10⁡}\left(\frac{V_{sample}}{V_{solvent}}\right)=\epsilon_\lambda \cdot c \cdot d</script>
+
+<p>and the concentration we are looking for can be expressed as:</p>
+
+<script type="math/tex; mode=display">c=\frac{1}{\epsilon_\lambda d} \log_{10⁡}\left(\frac{V_{sample}}{V_{solvent}} \right)</script>
+
+<h2 id="setup">Setup</h2>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/sparkfun_lux_sensor_tempt6000.jpg" alt="" style="height:4cm;" />
+    <figcaption>TEMT6000 Ambient Light Sensor Breakout Board  <a href="https://www.sparkfun.com/products/8688">(source)</a> </figcaption>
+  </figure>
+
+<p>Our OD-measurement-system is based on the TEMT6000 Ambient Light Sensor Breakout Board which is able to measure the illuminance (in lux) of an incident light in the range of 390nm to 700nm. The light emitting source is an orange LED (HLMP-C423) which emmits light with a wavelength of 600nm.
+To read the analog values of the light sensor, we are using the Pin A0 on the Arduino which is connected to the Pad P2 on the backside of the OpenDrop System. This pin was originally intended to be used for the polarity pin of the HV507 flash registers that drive the electrodes.
+As we don’t use the polarity pin, it can be configured as an analog input for the ambient light sensor. The pads P3 (5V) and P12 (GND) can be used as the power source for the LED and the sensor.</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/OD_measurement_wiring-2.jpg" alt="" style="height:12cm;" />
+    <figcaption>Wiring the light sensor on the OpenDrop System </figcaption>
+  </figure>
+
+<p>A current limiting resistor of 150 Ohm is used to limit the current through the LED. The HLMP-C423 LED has got a voltage drop of 1.9V which results in a forward current of around 20mA. According to Ohm’s law the resistor should be around</p>
+
+<script type="math/tex; mode=display">R = \frac{5V - 1.9V}{20mA} = 155\Omega</script>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/light_sensor_schematic.png" alt="" style="height:12cm;" />
+    <figcaption>Light sensor schematic </figcaption>
+  </figure>
+
+<p>The common way of doing OD-measurement is to compare the values of a blank material with the results of the substance to be measured.</p>
+
+<h3 id="internal-setup">Internal Setup</h3>
+<p>For first tests a 3D-printed setup is used to configure the basic measurement. The liquid is put into a standard 1x1cm cuvette normally used for a professional spectrophotometer.</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/OD_measurement_extern_1.jpg" alt="" style="height:8cm;" />
+    <figcaption>External OD-measurement system on the OpenDrop </figcaption>
+  </figure>
+
+<center>
+      <table class="image">
+        <tr>
+          <td><figure>
+            <img src="http://localhost:4000/OpenDrop/images/OD_measurement_extern_3D.png" alt="" style="height:5cm" />
+          </figure> <figcaption>3D model of the external OD measurement system </figcaption> </td>
+          <td><figure>
+            <img src="http://localhost:4000/OpenDrop/images/OD_measurement_extern_2.jpg" alt="" style="height:5cm" />
+          </figure> <figcaption>Assembly of the external OD measurement system on the OpenDrop </figcaption> </td>
+        </tr>
+      </table>
+    </center>
+
+<p>To compare the results of the OD measurement on the OpenDrop with a professional spectrophotometer we measured the OD of diluted cell cultures (E.coli) with the <a href="https://www.implen.de">Implen Nanophotometer</a> and the <a href="http://www.biochrom.co.uk/product/24/biochrom-wpa-biowave-ii-uv-visible-spectrophotometer-with-life-science-methods.html">WPA Biowave II</a> and compared the results with the measurement on the OpenDrop.</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/OD_measurement_extern_3D_front.png" alt="" style="height:7cm;" />
+    <figcaption>Large (left) and small (right) hole in the OD-measurement setup </figcaption>
+  </figure>
+
+<p>Interesting results have been occurred after measuring the OD with a small hole and a larger hole in the 3D-printed part whith changes the amount of light passing through the cuvette. A smaller hole caused higher values for the optical density and therefore a higher accuracy.</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/od_chart_2.png" alt="" style="height:8cm;" />
+    <figcaption>First OD-measurement </figcaption>
+  </figure>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/od_chart_3.png" alt="" style="height:8cm;" />
+    <figcaption>Second OD-measurement </figcaption>
+  </figure>
+
+<h3 id="external-setup">External Setup</h3>
+<p>After the first experiments with this external setup we decided to do the OD600 measurement directly on the OpenDrop System. Therefore, the LED is placed on top of the Droplet so that the light beam can pass the hole in the middle of an electrode and can be detected by the Light Sensor on the bottom of the OpenDrop System.</p>
+
+<figure display:="" inline-block="">
+    <img src="http://localhost:4000/OpenDrop/images/OD_measurement.png" alt="" style="height:5cm;" />
+    <figcaption>Sketch of the internal OD-measurement principle </figcaption>
+  </figure>
+
+<p>To hold the LED and the sensor in place, two 3D-printable parts have been created that can be attached to the OpenDropSystem.</p>
+
+<center>
+      <table class="image">
+        <tr>
+          <td><figure>
+            <img src="http://localhost:4000/OpenDrop/images/OD_measurement_BOTTOM_3D.png" alt="" style="height:5cm" />
+          </figure> <figcaption>3D model of the printable bottom part </figcaption> </td>
+          <td><figure>
+            <img src="http://localhost:4000/OpenDrop/images/OD_measurement_TOP_3D.png" alt="" style="height:5cm" />
+          </figure> <figcaption>3D model of the printable top part </figcaption> </td>
+        </tr>
+      </table>
+    </center>
+
+<center>
+      <table class="image">
+        <tr>
+          <td><figure>
+            <img src="http://localhost:4000/OpenDrop/images/OD_measurement_BOTTOM_attached.jpg" alt="" style="height:5cm" />
+          </figure> <figcaption>attached bottom part </figcaption> </td>
+          <td><figure>
+            <img src="http://localhost:4000/OpenDrop/images/OD_measurement_TOP_attached.jpg" alt="" style="height:5cm" />
+          </figure> <figcaption>attached top part </figcaption> </td>
+        </tr>
+      </table>
+    </center>
+
+<p>After starting the system it was noticed that the light that is received from the sensor is very low so that the analogue reading displays 0. This is caused by the relatively small diameter of the hole. One solution for that problem may be a brighter LED. At a forward current of 20mA this LED dissipates a power of around 38mW. High wattage LEDs cannot be driven form the Arduino pin as this can only provide current up to a maximum of 30mA. Higher currents would destroy the Arduino.</p>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper" >
+    <div class="footer-nav">
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/1-coating.html">Coating</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/2-od_measurement.html">OD600-Measurement</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/3-hardware.html">Hardware</a>
+          
+        
+          
+          <a class="page-link" href="http://localhost:4000/OpenDrop/4-software.html">Software</a>
+          
+        
+          
+        
+          
+        
+    </div>
+    </div>
+      <h2 class="footer-heading"><a href="http://localhost:4000/OpenDrop/">OpenDrop</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">cc-by-sa</a> <a href="https://github.com/pellkartoffel">Hannes Thielke</a> - 2018.</h2> 
+  </div>
+</footer>
+
+
+  </body>
+
+</html>

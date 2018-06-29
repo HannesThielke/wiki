@@ -1,0 +1,73 @@
+\hypertarget{_open_drop_i_i_8cpp}{}\section{/\+Users/bcl/\+Documents/\+Arduino/libraries/\+Open\+Drop\+\_\+\+Library\+\_\+v2.2/\+Open\+Drop\+II.cpp File Reference}
+\label{_open_drop_i_i_8cpp}\index{/\+Users/bcl/\+Documents/\+Arduino/libraries/\+Open\+Drop\+\_\+\+Library\+\_\+v2.\+2/\+Open\+Drop\+I\+I.\+cpp@{/\+Users/bcl/\+Documents/\+Arduino/libraries/\+Open\+Drop\+\_\+\+Library\+\_\+v2.\+2/\+Open\+Drop\+I\+I.\+cpp}}
+{\ttfamily \#include \char`\"{}Open\+Drop\+I\+I.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hardware\+\_\+def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Adafruit\+\_\+\+G\+F\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Adafruit\+\_\+\+S\+S\+D1306.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Adafruit\+\_\+\+S\+S\+D1306 \mbox{\hyperlink{_open_drop_i_i_8cpp_a1671c15ea8b66182fa3e462ac06caf2d}{display}} (O\+L\+E\+D\+\_\+\+M\+O\+SI, O\+L\+E\+D\+\_\+\+C\+LK, O\+L\+E\+D\+\_\+\+DC, O\+L\+E\+D\+\_\+\+R\+E\+S\+ET, O\+L\+E\+D\+\_\+\+CS)
+\item 
+void \mbox{\hyperlink{_open_drop_i_i_8cpp_ab4ebaab6a03cc75f12a3f77ac1e9574f}{clear\+\_\+\+Fluxels}} ()
+\item 
+bool \mbox{\hyperlink{_open_drop_i_i_8cpp_ab170c307ab93a44e7b12138a939e9316}{free\+\_\+\+Fluxel}} (uint8\+\_\+t x, uint8\+\_\+t y, uint8\+\_\+t dir)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_open_drop_i_i_8cpp_ab601c03bbe325a540dd9ed3eb9082eec}\label{_open_drop_i_i_8cpp_ab601c03bbe325a540dd9ed3eb9082eec}} 
+bool {\bfseries Fluxls} \mbox{[}Fluxl\+Pad\+\_\+width\mbox{]}\mbox{[}Fluxl\+Pad\+\_\+heigth\mbox{]}
+\item 
+\mbox{\Hypertarget{_open_drop_i_i_8cpp_a4a5e0d893de5156e349099dfad38f0ea}\label{_open_drop_i_i_8cpp_a4a5e0d893de5156e349099dfad38f0ea}} 
+byte {\bfseries pad\+\_\+feedback} \mbox{[}128\mbox{]}
+\item 
+\mbox{\Hypertarget{_open_drop_i_i_8cpp_a5eb2213f8e99788bf0a962926e79e261}\label{_open_drop_i_i_8cpp_a5eb2213f8e99788bf0a962926e79e261}} 
+uint16\+\_\+t {\bfseries display\+\_\+color} = 0x\+F\+F\+FF
+\item 
+\mbox{\Hypertarget{_open_drop_i_i_8cpp_aeafa46af90705d40377938c21e26fe7d}\label{_open_drop_i_i_8cpp_aeafa46af90705d40377938c21e26fe7d}} 
+int {\bfseries V\+\_\+solvent} = -\/1
+\item 
+\mbox{\Hypertarget{_open_drop_i_i_8cpp_a6afedd24399a9f2811efd3b475d9399d}\label{_open_drop_i_i_8cpp_a6afedd24399a9f2811efd3b475d9399d}} 
+int {\bfseries absorption\+\_\+coeff} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{\mbox{\hyperlink{index_8h_source}{index.\+h}} }
+
+This file is part of the \mbox{\hyperlink{class_open_drop}{Open\+Drop}} library by Urs Gaudenz, Gaudi\+Labs 2016 \subsubsection*{Documentation by Hannes Thielke -\/ Bio Compute Lab, University of Bristol, 2018 }
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_open_drop_i_i_8cpp_ab4ebaab6a03cc75f12a3f77ac1e9574f}\label{_open_drop_i_i_8cpp_ab4ebaab6a03cc75f12a3f77ac1e9574f}} 
+\index{Open\+Drop\+I\+I.\+cpp@{Open\+Drop\+I\+I.\+cpp}!clear\+\_\+\+Fluxels@{clear\+\_\+\+Fluxels}}
+\index{clear\+\_\+\+Fluxels@{clear\+\_\+\+Fluxels}!Open\+Drop\+I\+I.\+cpp@{Open\+Drop\+I\+I.\+cpp}}
+\subsubsection{\texorpdfstring{clear\+\_\+\+Fluxels()}{clear\_Fluxels()}}
+{\footnotesize\ttfamily void clear\+\_\+\+Fluxels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clear Fluxel Matrix --$>$ set all entries to 0 (false) \mbox{\Hypertarget{_open_drop_i_i_8cpp_a1671c15ea8b66182fa3e462ac06caf2d}\label{_open_drop_i_i_8cpp_a1671c15ea8b66182fa3e462ac06caf2d}} 
+\index{Open\+Drop\+I\+I.\+cpp@{Open\+Drop\+I\+I.\+cpp}!display@{display}}
+\index{display@{display}!Open\+Drop\+I\+I.\+cpp@{Open\+Drop\+I\+I.\+cpp}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+S\+S\+D1306 display (\begin{DoxyParamCaption}\item[{O\+L\+E\+D\+\_\+\+M\+O\+SI}]{,  }\item[{O\+L\+E\+D\+\_\+\+C\+LK}]{,  }\item[{O\+L\+E\+D\+\_\+\+DC}]{,  }\item[{O\+L\+E\+D\+\_\+\+R\+E\+S\+ET}]{,  }\item[{O\+L\+E\+D\+\_\+\+CS}]{ }\end{DoxyParamCaption})}
+
+Initialize the O\+L\+ED display to be used at the S\+PI bus \mbox{\Hypertarget{_open_drop_i_i_8cpp_ab170c307ab93a44e7b12138a939e9316}\label{_open_drop_i_i_8cpp_ab170c307ab93a44e7b12138a939e9316}} 
+\index{Open\+Drop\+I\+I.\+cpp@{Open\+Drop\+I\+I.\+cpp}!free\+\_\+\+Fluxel@{free\+\_\+\+Fluxel}}
+\index{free\+\_\+\+Fluxel@{free\+\_\+\+Fluxel}!Open\+Drop\+I\+I.\+cpp@{Open\+Drop\+I\+I.\+cpp}}
+\subsubsection{\texorpdfstring{free\+\_\+\+Fluxel()}{free\_Fluxel()}}
+{\footnotesize\ttfamily bool free\+\_\+\+Fluxel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x,  }\item[{uint8\+\_\+t}]{y,  }\item[{uint8\+\_\+t}]{dir }\end{DoxyParamCaption})}
+
+Check if the electrodes around the current Fluxl and the target Fluxl is free (no droplet on it) or if the edge of the field is reached.~\newline
+This can be used to avoid collisions.  
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the Fluxel \\
+\hline
+{\em y} & The y-\/coordinate of the Fluxel \\
+\hline
+{\em dir} & The direction to move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false (Fluxel is free) or true (Fluxel is blocked or out of the field) 
+\end{DoxyReturn}
