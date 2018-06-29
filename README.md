@@ -1,6 +1,18 @@
-<h1> General Information </h1>
---> Text from http://www.gaudi.ch/OpenDrop/
+# go-go-ghpages
 
-<b>OpenDrop</b> is a new design for an open source digital microfludics platform for research purposes. The device uses recent electro-wetting technology to control small droplets of liquids. Potential applications are lab on a chip devices for automating processes of digital biology. How ever the present design should also open the technology to other field and allow experimentation to find new applications. Including the field of art, music, games and education.
+An intro workshop about GitHub Pages and Jekyll. 
 
-The design approach chosen relies strongly on Do-It-Your-Self (DIY) and Low-Cost. To aim is to only use standard and widely-available components, materials, and production processes. We try to avoid parts that aren’t available to individual customers or processes that require expensive setup costs. Also all design files and software required to operate your hardware are shared under open licenses.
+https://evanwill.github.io/go-go-ghpages/
+
+# Build a Website with Jekyll and GitHub Pages 
+
+With [GitHub pages](https://pages.github.com/) and [Jekyll](https://jekyllrb.com/) you can quickly create and publish a website for free! 
+It is an ideal solution for creating a simple project or personal site to highlight your academic work. 
+
+This workshop will introduce the basics of using the popular static website generator Jekyll integrated with GitHub pages. 
+You will learn how to set up a project repository, write content in Markdown, and publish your site, all using GitHub's user friendly web interface. 
+Advanced usage of Jekyll for local web development is introduced final section.
+
+### Hosted at [University of Idaho Library](http://www.lib.uidaho.edu/) April 2017
+
+> licensed [cc-by-sa](https://creativecommons.org/licenses/by-sa/4.0/) <a href="https://github.com/evanwill">evan will</a> 2017
